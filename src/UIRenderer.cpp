@@ -15,18 +15,18 @@ void UIRenderer::displayHeaders(unsigned long address) {
     box(screen0, 0, 0);
     wbkgd(screen0, COLOR_PAIR(4));
     wattron(screen0, A_BOLD | A_STANDOUT);
-    mvwprintw(screen0, 1, 25, "### DSKPATCH - 4.3 ###");
+    mvwprintw(screen0, 1, 27, "### DSKPATCH - 4.3 ###");
     wrefresh(screen0);
 
     wclear(screen1);
     box(screen1, 0, 0);
     wbkgd(screen1, COLOR_PAIR(2));
-    int q = 5;
+    int q = 9;
     for (const auto& item : list) {
         mvwprintw(screen1, 1, q, "%s", item.data());
         q += 3;
     }
-    int pp = 55;
+    int pp = 59;
     for (char c : head) {
         mvwprintw(screen1, 1, pp++, "%c", c);
     }
@@ -52,7 +52,8 @@ void UIRenderer::updateAddressDisplay(unsigned long address) {
     wrefresh(screen3);
 }
 
-void UIRenderer::fillBoard(const std::array<std::array<unsigned char, 16>, 16>& data, int i, int k) {
+void UIRenderer::fillBoard(const std::array<std::array<unsigned char, 16>, 16>& data, 
+                           int i, int k) {
     WINDOW* screen2 = window_manager.getScreen(2);
     WINDOW* screen5 = window_manager.getScreen(5);
     wclear(screen2);
@@ -201,7 +202,7 @@ void UIRenderer::showHelpScreen() {
         wclear(help_win);
         box(help_win, 0, 0);
         wbkgd(help_win, COLOR_PAIR(4));
-        mvwprintw(help_win, 1, 2, "DSKPATCH 2.0 - Help");
+        mvwprintw(help_win, 1, 2, "DSKPATCH 4.3 - Help");
         mvwprintw(help_win, 2, 2, "Keybindings:");
         for (int i = 0; i < max_lines && i + scroll_offset < help_lines.size(); ++i) {
             mvwprintw(help_win, 3 + i, 4, "%s", help_lines[i + scroll_offset].c_str());
@@ -240,9 +241,8 @@ void UIRenderer::showHelpScreen() {
 
 std::string UIRenderer::format_address(unsigned long addr) const {
     std::stringstream ss;
-    ss << std::hex << std::setw(8) << std::setfill('0') << addr;
-    std::string full_addr = ss.str();
-    return full_addr.substr(0, 2);
+    ss << std::hex << std::setw(6) << std::setfill('0') << addr;
+    return ss.str();
 }
 
 } // namespace dskpatch

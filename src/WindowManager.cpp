@@ -23,15 +23,15 @@ WindowManager::~WindowManager() {
 void WindowManager::createWindows() {
     int lines, cols;
     getmaxyx(stdscr, lines, cols);
-    if (lines < 25 || cols < 108) {
+    if (lines < 25 || cols < 80) {
         endwin();
-        throw std::runtime_error("Terminal too small for main UI (min 25x108)");
+        throw std::runtime_error("Terminal too small for main UI (min 25x80)");
     }
-
+// Ordem das janelas 0, 1, 2, 5, 3, 4
     const int alt[6] = {3, 3, 18, 5, 18, 18};
     const int linha[6] = {1, 4, 7, 25, 7, 7};
-    const int comp[6] = {72, 72, 50, 72, 4, 18};
-    const int col[6] = {36, 36, 40, 36, 36, 90};
+    const int comp[6] = {76, 76, 50, 76, 8, 18};
+    const int col[6] = {10, 10, 18, 10, 10, 68};
 
     for (int i = 0; i < 6; ++i) {
         screen[i] = newwin(alt[i], comp[i], linha[i], col[i]);

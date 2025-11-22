@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/dskpatch4-3.dir/link.d "CMakeFiles/dskpatch4-3.dir/main.cpp.o" "CMakeFiles/dskpatch4-3.dir/WindowManager.cpp.o" "CMakeFiles/dskpatch4-3.dir/UIRenderer.cpp.o" "CMakeFiles/dskpatch4-3.dir/InputHandler.cpp.o" "CMakeFiles/dskpatch4-3.dir/FileManager.cpp.o" "CMakeFiles/dskpatch4-3.dir/HexEditor.cpp.o" -o dskpatch4-3  -lncurses -lpanel

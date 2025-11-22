@@ -74,6 +74,22 @@ void InputHandler::handleInput(int ch) {
             ui_renderer.updateAddressDisplay(address);
             break;
         }
+        case 9: // TAB 
+        {
+          echo();
+          curs_set(1);
+          char input[2] = {0};
+          mvwgetnstr(window_manager.getScreen(3), x, y, input, 1);
+          curs_set(0);
+          noecho();
+          char* endptr;
+          long value = strtol(input, &endptr, 16);
+          if(*endptr == '\0' && endptr != input){
+            file_manager.getData()[i][k] = static_cast<unsigned char>(value);
+          }
+          ui_renderer.fillBoard(file_manager.getData(), i, k);
+          break;
+        }
         case 10: // Enter
         {
             echo();

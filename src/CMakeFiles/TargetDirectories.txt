@@ -1,0 +1,7 @@
+/home/abr/PROJECTS/C++Projects/DskPatch4-2/src/CMakeFiles/dskpatch4-3.dir
+/home/abr/PROJECTS/C++Projects/DskPatch4-2/src/CMakeFiles/edit_cache.dir
+/home/abr/PROJECTS/C++Projects/DskPatch4-2/src/CMakeFiles/rebuild_cache.dir
+/home/abr/PROJECTS/C++Projects/DskPatch4-2/src/CMakeFiles/list_install_components.dir
+/home/abr/PROJECTS/C++Projects/DskPatch4-2/src/CMakeFiles/install.dir
+/home/abr/PROJECTS/C++Projects/DskPatch4-2/src/CMakeFiles/install/local.dir
+/home/abr/PROJECTS/C++Projects/DskPatch4-2/src/CMakeFiles/install/strip.dir
