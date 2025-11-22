@@ -1,6 +1,6 @@
 # 💻 Dskpatch 4.3
 
-![Captura de tela do Dskpatch](image/dskpatch.png) 
+![Captura de tela do Dskpatch](images/dskpatch.png) 
 
 Um visualizador/editor hexadecimal para terminal, desenvolvido em C++ usando a biblioteca NCurses. Permite inspecionar e modificar o conteúdo binário de arquivos diretamente na linha de comando.
 
