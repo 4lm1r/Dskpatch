@@ -6,10 +6,13 @@
 #include <unistd.h>
 #include <ncurses.h>
 #include <cstring>
+#include <iostream>
 
 namespace dskpatch {
 
 int FileManager::mapMemory(unsigned long offset, size_t len) {
+    std::cerr << "DEBUG: Tentando abrir o arquivo: " << filename << std::endl;
+
     int fd = open(filename.c_str(), O_RDWR);
     if (fd == -1) {
         mvwprintw(window_manager.getScreen(3), 2, 12, "Error: Cannot open file: %s", strerror(errno));
@@ -126,7 +129,7 @@ int FileManager::saveToFile() {
         return -1;
     }
 
-    int fd = open(filename.c_str(), O_WRONLY);
+    int fd = open(filename.c_str(), O_RDWR);  // )_WRONLY 
     if (fd == -1) {
         mvwprintw(window_manager.getScreen(3), 3, 10, "Error: Cannot open file for writing: %s", strerror(errno));
         wrefresh(window_manager.getScreen(3));
